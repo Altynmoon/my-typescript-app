@@ -6,6 +6,7 @@ import SignUp from './components/authorization/signUp';
 import { Navbar } from './components/Navbar/Navbar';
 import MainPage from './components/pages/MainPage';
 import { Auth } from './context/Auth';
+import Favourites from './components/pages/Favourites';
 
 function App() {
   const [token, setToken] = useState<string | null>(localStorage.getItem('idToken') || null);
@@ -32,6 +33,8 @@ function App() {
           <Route path="/sign-up" element={<SignUp login={login} />} />
           <Route path="/" element={<MainPage token={token} />} />
           <Route path="/about-us" element={<MainPage token={token} />} />
+          {token && <Route path="/favourites" element={<Favourites token={token} />} />}
+
         </Routes>
       </BrowserRouter>
     </Auth.Provider>

@@ -13,7 +13,7 @@ export const fetchJobs = ({page = 0, perPage= 9, search = ''}={}) =>(dispatch: D
                     page: res.data.page,
                     total_pages: +Math.min(res.data.pages, 100)
                 }
-            })444
+            })
     })
 };
 type Data = {

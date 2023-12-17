@@ -1,6 +1,7 @@
 import { Container, FormControl, Grid, styled } from '@mui/material';
 import { FC, useCallback, useState } from 'react';
 import JobsPage from './JobsPage';
+import { Search } from '../search-panel/Search';
 
 const Header = styled('h1')`
   padding: 50px auto 20px;
@@ -21,6 +22,8 @@ const MainPage: FC<Props> = ({ token }) => {
     <Container>
       <Grid item xs={12} md={3} sm={6}></Grid>
       <Header>Мы нашли для вас работу! </Header>
+      <Search getSearchPanelData={handleGetSearchPanelData} token={token} />
+
       <JobsPage search={search} />
     </Container>
   );
